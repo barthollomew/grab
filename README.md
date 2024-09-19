@@ -1,6 +1,6 @@
 # Grab
 
-**Grab** is a fast, easy-to-use command-line tool that allows you to download videos in bulk using URLs specified in a text file. It supports two methods for extracting video URLs: direct HTML scraping and Selenium browser automation, making it versatile for various websites.
+**Grab** is a fast, easy-to-use command-line tool that allows you to download videos in bulk using URLs from a text file. It supports two methods for extracting video URLs: direct HTML scraping and Selenium browser automation, making it versatile for various websites.
 
 ## Features
 
@@ -8,7 +8,6 @@
 - **Dual Extraction Methods**: 
   - **HTML Scraping**: Uses `requests` and `BeautifulSoup` for fast and lightweight URL extraction.
   - **Selenium Automation**: Handles more complex cases where JavaScript or dynamic content needs to be rendered.
-- **Simple CLI Interface**: Easily configurable through command-line options, with sensible defaults.
 - **Support for Cookies**: Use cookies for authenticated sessions if needed.
 
 ## Installation
