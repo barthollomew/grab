@@ -50,24 +50,17 @@ def download_video(video_url, video_name):
     subprocess.run(command, check=True)
 
 
-def process_video_links(file_path, driver_path):
+def process_video_links(video_title, video_url, driver_path):
     """
     Processes video links from a file and attempts to download them using Selenium.
 
-    :param file_path: Path to the file containing video titles and URLs.
+    :param video_title: Title of the video.
+    :param video_url: URL of the page containing the video.
     :param driver_path: Path to the ChromeDriver.
     :return: True if a video is successfully downloaded, False otherwise.
     """
-    with open(file_path, 'r') as f:
-        lines = f.readlines()
-
-    for i in range(0, len(lines), 2):
-        video_name = lines[i].strip()
-        embed_url = lines[i + 1].strip()
-
-        video_url = extract_video_url_selenium_logs(embed_url, driver_path)
-
-        if video_url:
-            download_video(video_url, video_name)
-            return True
+    video_url = extract_video_url_selenium_logs(video_url, driver_path)
+    if video_url:
+        download_video(video_url, video_title)
+        return True
     return False

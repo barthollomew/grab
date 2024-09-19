@@ -4,7 +4,6 @@ import requests
 import yt_dlp
 from bs4 import BeautifulSoup
 
-
 def load_cookies(cookie_file):
     """
     Loads cookies from a JSON file and returns them as a dictionary.
@@ -104,24 +103,18 @@ def download_video(url, video_title, cookies):
         print(f"Failed to download {video_title}: {e}")
 
 
-def process_video_links(file_path, session, cookies):
+def process_video_links(video_title, video_url, session, cookies):
     """
     Processes video links from a file and attempts to download them.
 
-    :param file_path: Path to the file containing video titles and URLs.
+    :param video_title: Title of the video.
+    :param video_url: URL of the page containing the video.
     :param session: Requests session object.
     :param cookies: Dictionary of cookies.
+    :return: True if a video is successfully downloaded, False otherwise.
     """
-    with open(file_path, "r") as file:
-        lines = file.readlines()
-    i = 0
-    while i < len(lines):
-        video_title = lines[i].strip()
-        video_url = lines[i + 1].strip() if i + 1 < len(lines) else ""
-        if video_title and video_url:
-            final_video_url = get_video_url(video_title.replace(" ", "_"), video_url, session)
-            if final_video_url:
-                download_video(final_video_url, video_title.replace(" ", "_"), cookies)
-                return True
-        i += 2
+    final_video_url = get_video_url(video_title.replace(" ", "_"), video_url, session)
+    if final_video_url:
+        download_video(final_video_url, video_title.replace(" ", "_"), cookies)
+        return True
     return False
