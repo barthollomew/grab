@@ -6,7 +6,7 @@
 
 - **Bulk Video Download**: Download multiple videos by simply listing their titles and URLs in a text file.
 - **Dual Extraction Methods**: 
-  - **HTML Scraping**: Uses `requests` and `BeautifulSoup` for fast and lightweight URL extraction.
+  - **HTML Scraping**: Uses `yt-dlp` and `BeautifulSoup` for fast and lightweight URL extraction.
   - **Selenium Automation**: Handles more complex cases where JavaScript or dynamic content needs to be rendered.
 - **Support for Cookies**: Use cookies for authenticated sessions if needed.
 
