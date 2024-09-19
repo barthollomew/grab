@@ -1,0 +1,6 @@
+Lecture Video Title 1
+Lecture Video Link 1
+Lecture Video Title 2
+Lecture Video Link 2
+Lecture Video Title 3
+Lecture Video Link 3

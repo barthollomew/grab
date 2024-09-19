@@ -1,0 +1,22 @@
+{
+    "cookies": [
+        {
+            "name": "sessionid",
+            "value": "1234567890abcdef",
+            "domain": ".example.com",
+            "path": "/",
+            "expires": null,
+            "secure": true,
+            "httpOnly": true
+        },
+        {
+            "name": "csrftoken",
+            "value": "faketokenvalue1234567890",
+            "domain": ".example.com",
+            "path": "/",
+            "expires": "2024-12-31T23:59:59.000Z",
+            "secure": true,
+            "httpOnly": false
+        }
+    ]
+}
