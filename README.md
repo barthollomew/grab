@@ -1,47 +1,77 @@
-# Video Downloader
+# Grab
 
-This script automates the process of downloading videos from specific URLs using authentication cookies and `yt-dlp`. The videos are automatically downloaded into a `downloads` directory.
+**Grab** is a fast, easy-to-use command-line tool that allows you to download videos in bulk using URLs specified in a text file. It supports two methods for extracting video URLs: direct HTML scraping and Selenium browser automation, making it versatile for various websites.
 
-## Setup
+## Features
 
-1. **Install dependencies:**
+- **Bulk Video Download**: Download multiple videos by simply listing their titles and URLs in a text file.
+- **Dual Extraction Methods**: 
+  - **HTML Scraping**: Uses `requests` and `BeautifulSoup` for fast and lightweight URL extraction.
+  - **Selenium Automation**: Handles more complex cases where JavaScript or dynamic content needs to be rendered.
+- **Simple CLI Interface**: Easily configurable through command-line options, with sensible defaults.
+- **Support for Cookies**: Use cookies for authenticated sessions if needed.
 
-   Ensure you have `yt-dlp`, `requests`, and `beautifulsoup4` installed.
+## Installation
 
-   ```bash
-   pip install yt-dlp requests beautifulsoup4
-   ```
+1. **Clone the Repository:**
 
-2. **Obtain cookies:**
+    ```bash
+    git clone https://github.com/yourusername/grab.git
+    cd grab
+    ```
 
-   Log in to your account via a web browser and export the cookies as `cookies.json`.
+2. **Set Up a Virtual Environment:**
 
-3. **Prepare your video links:**
+    ```bash
+    python3 -m venv myenv
+    source myenv/bin/activate  # On Windows use: myenv\Scripts\activate
+    ```
 
-   Create a text file `video_links.txt` with alternating lines of video titles and URLs.
+3. **Install Dependencies:**
+
+    ```bash
+    pip install -r requirements.txt
+    ```
 
 ## Usage
 
-1. Run the script:
+### Preparing the Input Files
 
-   ```bash
-   python dall.py
-   ```
+1. **`video_links.txt`**: Create a text file with alternating lines of video titles and URLs. For example:
 
-2. The videos will be downloaded into the `downloads` folder.
+    ```plaintext
+    Lecture Video Title 1
+    https://example.com/video1
+    Lecture Video Title 2
+    https://example.com/video2
+    Lecture Video Title 3
+    https://example.com/video3
+    ```
 
-## Directory Structure
+2. **`cookies.json`**: If needed, place your cookies in a `cookies.json` file. This is useful for downloading videos from sites that require authentication.
 
+### Running the Tool
+
+You can run Grab from the command line with default settings:
+
+```bash
+python main.py
 ```
-.
-├── cookies.json
-├── cookies.txt
-├── dall.py
-├── video_links.txt
-└── downloads
-    └── <downloaded videos>.mp4
+
+Or customize the paths for your files:
+
+```bash
+python main.py --file my_video_links.txt --driver /path/to/chromedriver --cookies my_cookies.json
 ```
 
-## License
+### Command-line Options
 
-This project is licensed under the MIT License.
+- **`-f, --file`**: Path to the video links file (default: `video_links.txt`).
+- **`-d, --driver`**: Path to the ChromeDriver executable (default: `/usr/local/bin/chromedriver`).
+- **`-c, --cookies`**: Path to the cookies JSON file (default: `cookies.json`).
+
+### Example
+
+```bash
+python main.py --file my_videos.txt --driver /usr/local/bin/chromedriver --cookies my_cookies.json
+```
