@@ -47,7 +47,7 @@
     https://example.com/video3
     ```
 
-2. **`cookies.json`**: If needed, place your cookies in a `cookies.json` file. This is useful for downloading videos from sites that require authentication.
+2. **`cookies.json`**: If needed, place your cookies in a `cookies.json` file. This is useful for downloading videos from sites that require authentication. I recommend using J2TEAM Cookies Chrome Extension to get cookies.
 
 #### Running the Tool
 
